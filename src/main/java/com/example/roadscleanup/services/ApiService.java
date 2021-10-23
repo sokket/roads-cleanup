@@ -42,8 +42,6 @@ public class ApiService {
             String str = Objects.requireNonNull(response.body()).string();
             str = cleanup(StringEscapeUtils.unescapeJava(str));
 
-            System.out.println(str);
-
             return gson.fromJson(str,
                     VehiclesRequestDto.class);
         } catch (IOException e) {
