@@ -29,13 +29,19 @@ public class ApiController {
     }
 
     @GetMapping("vehicles")
-    public Set<VehiclesApiResp> getVehicles() {
-        return routsService.getVehiclesList();
+    public ResponseEntity<Set<VehiclesApiResp>> getVehicles() {
+        return ResponseEntity
+                .ok()
+                .header("Access-Control-Allow-Origin", "*")
+                .body(routsService.getVehiclesList());
     }
 
     @GetMapping("locations")
-    public Set<VehiclesLocationApiResp> getVehiclesLocation() {
-        return routsService.getVehiclesLocation();
+    public ResponseEntity<Set<VehiclesLocationApiResp>> getVehiclesLocation() {
+        return ResponseEntity
+                .ok()
+                .header("Access-Control-Allow-Origin", "*")
+                .body(routsService.getVehiclesLocation());
     }
 
     @GetMapping("streets")
