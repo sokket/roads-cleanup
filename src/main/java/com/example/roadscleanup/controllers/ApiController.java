@@ -11,11 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Objects;
 import java.util.Set;
 
 @RestController
@@ -50,7 +46,6 @@ public class ApiController {
             File file = ResourceUtils.getFile(ResourceUtils.CLASSPATH_URL_PREFIX + "routes.json");
             return ResponseEntity
                     .ok()
-                    .header("Access-Control-Allow-Origin", "*")
                     .body(Files.readString(file.toPath()));
         } catch (IOException e) {
             e.printStackTrace();
