@@ -1,13 +1,11 @@
 package com.example.roadscleanup.services;
 
-import com.example.roadscleanup.dto.*;
+import com.example.roadscleanup.dto.Features;
+import com.example.roadscleanup.dto.VehiclesApiResp;
+import com.example.roadscleanup.dto.VehiclesLocationApiResp;
+import com.example.roadscleanup.dto.VehiclesRequestDto;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
-import java.io.Reader;
-import java.lang.reflect.Type;
-
-import com.google.gson.reflect.TypeToken;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -16,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.Collections;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;

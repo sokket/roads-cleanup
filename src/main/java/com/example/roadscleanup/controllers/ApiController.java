@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Optional;
 import java.util.Set;
 
 @RestController
@@ -37,9 +36,11 @@ public class ApiController {
     @GetMapping("streets")
     public ResponseEntity<String> getStreetData() {
         try {
-            return ResponseEntity.of(
-                    Optional.of(Files.readString(
-                            Paths.get("/home/xinik/IdeaProjects/roads-cleanup/src/main/resources/routes.json"))));
+            return ResponseEntity
+                    .ok()
+                    .header("Access-Control-Allow-Origin", "*")
+                    .body(Files.readString(
+                            Paths.get("/home/xinik/IdeaProjects/roads-cleanup/src/main/resources/routes.json")));
         } catch (IOException e) {
             e.printStackTrace();
         }
