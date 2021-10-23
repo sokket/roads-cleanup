@@ -1,25 +1,31 @@
 package com.example.roadscleanup.services;
 
-import com.example.roadscleanup.dto.Features;
-import com.example.roadscleanup.dto.VehiclesApiResp;
-import com.example.roadscleanup.dto.VehiclesLocationApiResp;
-import com.example.roadscleanup.dto.VehiclesRequestDto;
+import com.example.roadscleanup.GraphService;
+import com.example.roadscleanup.dto.*;
+import com.example.roadscleanup.geo.Point;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 import org.apache.commons.lang3.StringEscapeUtils;
+import org.jgrapht.Graph;
+import org.jgrapht.alg.interfaces.ShortestPathAlgorithm;
+import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
+import org.jgrapht.graph.DefaultEdge;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
-import java.util.Collections;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class ApiService {
+
+    @Autowired
+    GraphService graphService;
 
     private VehiclesRequestDto getData() {
         OkHttpClient client = new OkHttpClient();
