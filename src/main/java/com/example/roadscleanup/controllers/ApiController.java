@@ -1,6 +1,7 @@
 package com.example.roadscleanup.controllers;
 
 import com.example.roadscleanup.dto.VehiclesApiResp;
+import com.example.roadscleanup.dto.VehiclesLocationApiResp;
 import com.example.roadscleanup.services.ApiService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +24,9 @@ public class ApiController {
         return routsService.getVehiclesList();
     }
 
+    @GetMapping("locations")
+    public Set<VehiclesLocationApiResp> getVehiclesLocation() {
+        return routsService.getVehiclesLocation();
+    }
 
 }
