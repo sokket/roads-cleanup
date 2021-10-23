@@ -28,7 +28,6 @@ public class ApiController {
     public ResponseEntity<Set<VehiclesApiResp>> getVehicles() {
         return ResponseEntity
                 .ok()
-                .header("Access-Control-Allow-Origin", "*")
                 .body(routsService.getVehiclesList());
     }
 
@@ -36,7 +35,6 @@ public class ApiController {
     public ResponseEntity<Set<VehiclesLocationApiResp>> getVehiclesLocation() {
         return ResponseEntity
                 .ok()
-                .header("Access-Control-Allow-Origin", "*")
                 .body(routsService.getVehiclesLocation());
     }
 
@@ -52,5 +50,4 @@ public class ApiController {
         }
         return ResponseEntity.internalServerError().build();
     }
-
 }
