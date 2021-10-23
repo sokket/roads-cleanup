@@ -102,7 +102,7 @@ public class GraphService {
                 var ff = dotsByStreetId.get(aLong);
                 var ffr = new ArrayList<List<Double>>();
                 for (Point point : ff) {
-                    ffr.add(List.of(point.getLat(), point.getLon()));
+                    ffr.add(List.of(point.getLon(), point.getLat()));
                 }
                 out.add(ffr);
             }
