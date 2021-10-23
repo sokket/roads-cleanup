@@ -13,12 +13,14 @@ import org.jgrapht.graph.DefaultDirectedWeightedGraph;
 import org.jgrapht.graph.DefaultEdge;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.annotation.PostConstruct;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Objects;
 
 @Service
 public class GraphService {
@@ -90,7 +92,7 @@ public class GraphService {
             }
 
             System.out.println(max);
-            var out = new ArrayList<List<Point>>();
+            var out = new ArrayList<List<List<Double>>>();
             for (Long aLong : iPaths.getPath(maxV).getVertexList()) {
                 for (DefaultEdge defaultEdge : g.edgesOf(aLong)) {
                     if (Objects.equals(g.getEdgeTarget(defaultEdge), aLong)) {
@@ -98,9 +100,9 @@ public class GraphService {
                     }
                 }
                 var ff = dotsByStreetId.get(aLong);
-                var ffr = new ArrayList<Point>();
+                var ffr = new ArrayList<List<Double>>();
                 for (Point point : ff) {
-                    ffr.add(new Point(point.getLat(), point.getLon(), point.getStreetId()));
+                    ffr.add(List.of(point.getLat(), point.getLon()));
                 }
                 out.add(ffr);
             }

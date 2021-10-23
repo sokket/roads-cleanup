@@ -1,6 +1,5 @@
 package com.example.roadscleanup.dto;
 
-import com.example.roadscleanup.geo.Point;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -10,5 +9,5 @@ import java.util.List;
 @AllArgsConstructor
 public class RouteResp {
     private long id;
-    private List<List<Point>> streets;
+    private List<List<List<Double>>> streets;
 }
